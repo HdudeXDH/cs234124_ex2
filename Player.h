@@ -6,14 +6,17 @@
 #define EX2_PLAYER_H
 
 
+
+
 class Player {
     const char *name;
     int level;
     int force;
     int hp;
     int coins;
+    int maxHP;
 public:
-    Player(const char *Name, int Force=5, int HP=100);
+    Player(const char *name, int force=5, int hp = 100);
     ~Player();
     void printInfo();
     void levelUp();

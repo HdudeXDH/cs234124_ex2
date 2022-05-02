@@ -9,8 +9,10 @@ Player::Player(const char *name, int force, int hp){
     this->name=name;
     this->force=force;
     this->level=1;
+    this->maxHP=hp;
     this->hp=hp;
     this->coins=0;
+
 };
 Player::~Player(){
 };//TODO: check what is the standard?!?
@@ -28,16 +30,19 @@ int Player::getAttackStrength(){
 
 };
 void Player::buff(int points){
-
+   this->force += points;
 };
 void Player::heal(int points){
-
+    if(this->hp + points >= this->maxHP) this->hp = this->maxHP;
+    else this->hp += points;
 };
 void Player::damage(int points){
-
-};
+    if (this->hp - points <= 0) this->hp = 0;
+    else this->hp -= points;
+}
 bool Player::isKnockedOut(){
-
+    if(this->hp == 0) return true;
+    return false;
 };
 void Player::addCoins(int amount){
 
