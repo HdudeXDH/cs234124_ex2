@@ -33,15 +33,15 @@ void Player::buff(int points){
 void Player::heal(int points){
 
 };
-void damage(int points){
+void Player::damage(int points){
 
 };
-bool isKnockedOut(){
+bool Player::isKnockedOut(){
 
 };
-void addCoins(int amount){
+void Player::addCoins(int amount){
 
 };
-bool pay(int amount){
+bool Player::pay(int amount){
 
 };
