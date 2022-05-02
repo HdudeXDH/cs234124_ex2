@@ -17,18 +17,48 @@ class Player {
     int maxHP;
 public:
     Player(const char *name, int force=5, int hp=100);
-    Player(const Player &)=default;
+    Player(const Player &)=default; //TODO: validate, else see tirgul 6 page 12
     ~Player() = default;
     Player & operator=(const Player &)=default;
+    /*
+     *
+     */
     void printInfo();
+    /*
+     *
+     */
     void levelUp();
+    /*
+     *
+     */
     int getLevel();
+    /*
+     *
+     */
     int getAttackStrength();
+    /*
+     *
+     */
     void buff(int points);
+    /*
+     *
+     */
     void heal(int points);
+    /*
+     *
+     */
     void damage(int points);
+    /*
+     *
+     */
     bool isKnockedOut();
+    /*
+     *
+     */
     void addCoins(int amount);
+    /*
+     *
+     */
     bool pay(int amount);
 };
 
