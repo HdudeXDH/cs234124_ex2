@@ -16,8 +16,10 @@ class Player {
     int coins;
     int maxHP;
 public:
-    Player(const char *name, int force=5, int hp = 100);
-    ~Player();
+    Player(const char *name, int force=5, int hp=100);
+    Player(const Player &)=default;
+    ~Player() = default;
+    Player & operator=(const Player &)=default;
     void printInfo();
     void levelUp();
     int getLevel();

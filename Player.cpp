@@ -21,10 +21,12 @@ void Player::printInfo(){
     printPlayerInfo(this->name,this->level, this->force, this->hp,  this->coins);
 };
 void Player::levelUp(){
-
+    if (level<10) {
+        this->level+=1;
+    };
 };
 int Player::getLevel(){
-
+    return this->level;
 };
 int Player::getAttackStrength(){
 
@@ -32,6 +34,7 @@ int Player::getAttackStrength(){
 void Player::buff(int points){
    this->force += points;
 };
+
 void Player::heal(int points){
     if(this->hp + points >= this->maxHP) this->hp = this->maxHP;
     else this->hp += points;
@@ -45,8 +48,13 @@ bool Player::isKnockedOut(){
     return false;
 };
 void Player::addCoins(int amount){
-
+    this->coins+=amount;
 };
 bool Player::pay(int amount){
-
+    if (this->coins>=amount){
+        this->coins-=amount;
+        return true;
+    } else{
+        return false;
+    }
 };
