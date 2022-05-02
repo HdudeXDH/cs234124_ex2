@@ -5,54 +5,52 @@
 #include "Player.h"
 #include "utilities.h"
 
-Player::Player(const char *name, int force, int hp){
-    this->name=name;
-    this->force=force;
-    this->level=1;
-    this->maxHP=hp;
-    this->hp=hp;
-    this->coins=0;
+Player::Player(const char *name, int hp , int force){
+    this->m_name=name;
+    this->m_force=force;
+    this->m_level=1;
+    this->m_maxHP=hp;
+    this->m_hp=hp;
+    this->m_coins=0;
 
 };
-Player::~Player(){
-};//TODO: check what is the standard?!?
 
 void Player::printInfo(){
-    printPlayerInfo(this->name,this->level, this->force, this->hp,  this->coins);
+    printPlayerInfo(this->m_name,this->m_level, this->m_force, this->m_hp,  this->m_coins);
 };
 void Player::levelUp(){
-    if (level<10) {
-        this->level+=1;
+    if (m_level<10) {
+        this->m_level+=1;
     };
 };
 int Player::getLevel(){
-    return this->level;
+    return this->m_level;
 };
 int Player::getAttackStrength(){
-
+    return(this->m_level+this->m_force);
 };
 void Player::buff(int points){
-   this->force += points;
+   this->m_force += points;
 };
 
 void Player::heal(int points){
-    if(this->hp + points >= this->maxHP) this->hp = this->maxHP;
-    else this->hp += points;
+    if(this->m_hp + points >= this->m_maxHP) this->m_hp = this->m_maxHP;
+    else this->m_hp += points;
 };
 void Player::damage(int points){
-    if (this->hp - points <= 0) this->hp = 0;
-    else this->hp -= points;
+    if (this->m_hp - points <= 0) this->m_hp = 0;
+    else this->m_hp -= points;
 }
 bool Player::isKnockedOut(){
-    if(this->hp == 0) return true;
+    if(this->m_hp == 0) return true;
     return false;
 };
 void Player::addCoins(int amount){
-    this->coins+=amount;
+    this->m_coins+=amount;
 };
 bool Player::pay(int amount){
-    if (this->coins>=amount){
-        this->coins-=amount;
+    if (this->m_coins>=amount){
+        this->m_coins-=amount;
         return true;
     } else{
         return false;

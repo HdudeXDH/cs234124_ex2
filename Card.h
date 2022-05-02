@@ -12,9 +12,9 @@
  *  CardType:
  *  Each card has an type:
  *  BATTLE - Battle against a monster.
- *  BUFF - Increase your player's force by 'm_force' points of CardStats.
- *  HEAL - Increase your player's HP by 'm_heal' points  of CardStats (no more than maxHP points).
- *  TREASURE - Get 'm_profit' coins of CardStats.
+ *  BUFF - Increase your player's m_force by 'm_force' points of CardStats.
+ *  HEAL - Increase your player's HP by 'm_heal' points  of CardStats (no more than m_maxHP points).
+ *  TREASURE - Get 'm_profit' m_coins of CardStats.
 */
 enum class CardType {Battle, Buff, Heal, Treasure}; // The type of the Card
 
@@ -51,7 +51,7 @@ public:
 
 
     /*
-     * C'tor to the "default card" - Treasure card that gives 0 coins
+     * C'tor to the "default card" - Treasure card that gives 0 m_coins
     */
     Card(): m_effect(CardType::Treasure), m_stats() {}
 

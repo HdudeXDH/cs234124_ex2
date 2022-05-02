@@ -5,12 +5,13 @@
 #ifndef EX2_GAME_H
 #define EX2_GAME_H
 #include "Card.h"
+#include "Player.h"
 #include <iostream>
 
 /*
  * GameStatus:
  * MidGame - The game is still active and the player continues to encounter cards.
- * Win - The player reached level 10.
+ * Win - The player reached m_level 10.
  * Loss - The player's HP is 0.
 */
 enum class GameStatus{Win, Loss, MidGame};
@@ -21,7 +22,7 @@ public:
     /*
      * C'tor of the game:
      *
-     * @param playerName - The name of the player.
+     * @param playerName - The m_name of the player.
      * @param cardsArray - A ptr to the cards deck.
      * @param numOfCards - Num of cards in the deck.
      * @result
@@ -58,10 +59,18 @@ public:
     GameStatus getGameStatus() const;
 
     //TODO: complete the Mtmchkin class.
+    Mtmchkin(const Mtmchkin &) = default;
+    Mtmchkin & operator=(const Mtmchkin &) = default;
+    ~Mtmchkin() = default;
+
 
 private:
     //TODO: complete the Mtmchkin class.
-
+    Player m_player ;
+    GameStatus m_game_status;
+    const Card* m_cards;
+    int m_cards_count;
+    int m_cards_index;
 };
 
 

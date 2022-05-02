@@ -12,23 +12,23 @@
  * Numeric stats of a card.
  */
 struct CardStats{
-    int force;  // The force of the monster
+    int force;  // The m_force of the monster
     int loot; // The profit you get when winning a battle or when getting a "Treasure" card
-    int hpLossOnDefeat; // The amount of hp you lose when losing the battle
+    int hpLossOnDefeat; // The amount of m_hp you lose when losing the battle
 
     int cost; // The cost of a "Buff/Heal" card
     int heal; // The amount of HP you get when buying a "HEAL" card
-    int buff; // The amount of force you get when buying a "BUFF" card
+    int buff; // The amount of m_force you get when buying a "BUFF" card
 
 
     /*
      *C'tor of CardStats:
      *
-     * @param force - The force of the card (monster).
+     * @param m_force - The m_force of the card (monster).
      * @param hpLoss - HP loss when losing the battle.
      * @param cost - The cost of the card when is type is "Buff" or "Heal".
      * @param heal - The amount of HP is given when buying a "Heal" card.
-     * @param buff - The amount of force is given when buying a "Buff" card.
+     * @param buff - The amount of m_force is given when buying a "Buff" card.
      * @param loot - The profit from winning a battle or when getting a "Treasure" card.
      * @return
      *      New instance of CardStats.
@@ -97,11 +97,11 @@ void printTreasureCardInfo(const CardStats& card);
 /*
  * Prints the details of the player:
  *
- * @param name - The name of the player.
- * @param level - The player's level.
- * @param force - The player's force.
- * @param hp - The player's HP points.
- * @param coins - The player's amount of coins.
+ * @param m_name - The m_name of the player.
+ * @param m_level - The player's m_level.
+ * @param m_force - The player's m_force.
+ * @param m_hp - The player's HP points.
+ * @param m_coins - The player's amount of m_coins.
  * @return
  *      void
  */

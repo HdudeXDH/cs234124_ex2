@@ -9,14 +9,14 @@
 
 
 class Player {
-    const char *name;
-    int level;
-    int force;
-    int hp;
-    int coins;
-    int maxHP;
+    const char *m_name;
+    int m_level;
+    int m_force;
+    int m_hp;
+    int m_coins;
+    int m_maxHP;
 public:
-    Player(const char *name, int force=5, int hp=100);
+    Player(const char *name, int hp=100, int force=5);
     Player(const Player &)=default; //TODO: validate, else see tirgul 6 page 12
     ~Player() = default;
     Player & operator=(const Player &)=default;

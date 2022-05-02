@@ -22,9 +22,9 @@ bool testMtmchkin(){
     }
     return true;
 }
-
+//todo: kill the player
 bool testCard(){
-    Player player("Efrat",150,2);  //Efrat has 150 max HP and 2 points of force.
+    Player player("Efrat",150,2);  //Efrat has 150 max HP and 2 points of m_force.
     CardStats stats(3, 40, 10, 30, 1, 20);
     Card card1(CardType::Treasure, stats);
     Card card2(CardType::Buff, stats);
@@ -38,11 +38,11 @@ bool testCard(){
     player.printInfo();
     return true;
 }
-
+//TODO: incomplete heal
 bool testPlayer(){
-    Player player1("Efrat",150,2);  //Efrat has 150 max HP and 2 points of force.
-    Player player2("Gandalf",300);  //Gandalf has 300 max HP and 5 points of force.
-    Player player3("Daniel"); //Gandalf has 100 max HP and 5 points of force.
+    Player player1("Efrat",150,2);  //Efrat has 150 max HP and 2 points of m_force.
+    Player player2("Gandalf",300);  //Gandalf has 300 max HP and 5 points of m_force.
+    Player player3("Daniel"); //Gandalf has 100 max HP and 5 points of m_force.
     player2.printInfo();
     Player player4 = player3;
     player2.addCoins(10);
