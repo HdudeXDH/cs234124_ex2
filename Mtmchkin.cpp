@@ -1,32 +1,47 @@
-//
-// Created by User on 5/2/2022.
-//
-
 #include "Mtmchkin.h"
+#include "Card.h"
 
 Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards):
     m_player(playerName),
     m_game_status(GameStatus::MidGame),
-    m_cards(cardsArray),
+    m_cards(new Card[numOfCards]),
     m_cards_count(numOfCards),
     m_cards_index(0) {
+    for (int i = 0; i<numOfCards;i++){
+        m_cards[i] = cardsArray[i];
+    }
 }
-//todo add constrctors
 
 
-//// copy constructor
-//Mtmchkin::Mtmchkin(const Mtmchkin& m) = default;
-////    :m_player(new Player) ,
-////    m_game_status(m.m_game_status),
-////    m_cards(m.m_cards),
-////    m_cards_count(m.m_cards_count),
-////    m_cards_index(m.m_cards_index) {
-////{
-//
-//
-////}
-////
-//Mtmchkin& Mtmchkin::operator=(const Mtmchkin& game) = default;
+// copy constructor
+Mtmchkin::Mtmchkin(const Mtmchkin& m) :
+    m_player(Player(m.m_player)) ,
+    m_cards(new Card[m.m_cards_count]),
+    m_game_status(m.m_game_status),
+    m_cards_count(m.m_cards_count),
+    m_cards_index(m.m_cards_count) {
+    for (int i = 0; i < m.m_cards_count; i++) {
+        m_cards[i] = m.m_cards[i];
+    }
+}
+
+Mtmchkin & Mtmchkin::operator=(const Mtmchkin & m) {
+    if (this == &m){
+        return *this;
+    };
+    delete[] m_cards;
+    m_cards = new Card[m.m_cards_count];
+    for (int i = 0; i<m.m_cards_count;i++){
+        m_cards[i] = m.m_cards[i];
+    }
+    this->m_player = Player(m.m_player);
+    return *this;
+}
+
+;
+Mtmchkin::~Mtmchkin(){
+    delete[] m_cards;
+};
 
 GameStatus Mtmchkin::getGameStatus() const {
     return this->m_game_status;

@@ -68,6 +68,15 @@ bool testPlayer(){
     return true;
 }
 
+bool _test_killhealplayer(){
+    Player player("Efrat",150,2);  //Efrat has 150 max HP and 2 points of m_force.
+    CardStats stats(1000, 1000, 10, 30, 1, 20);
+    Card card1(CardType::Battle, stats);
+    card1.applyEncounter(player);
+    if (!player.isKnockedOut()) return false;
+
+}
+
 void run_test(std::function<bool()> test, std::string test_name){
     if(!test()){
         std::cout<<test_name<<" FAILED."<<std::endl;

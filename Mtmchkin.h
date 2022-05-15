@@ -58,17 +58,15 @@ public:
      */
     GameStatus getGameStatus() const;
 
-    //TODO: complete the Mtmchkin class.
-    Mtmchkin(const Mtmchkin &) = default;
-    Mtmchkin & operator=(const Mtmchkin &) = default;
-    ~Mtmchkin() = default;
+    Mtmchkin(const Mtmchkin & m);
+    Mtmchkin & operator=(const Mtmchkin & m);
+    ~Mtmchkin();
 
 
 private:
-    //TODO: complete the Mtmchkin class.
     Player m_player ;
     GameStatus m_game_status;
-    const Card* m_cards;
+    Card* m_cards;
     int m_cards_count;
     int m_cards_index;
 };
