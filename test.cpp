@@ -68,12 +68,39 @@ bool testPlayer(){
     return true;
 }
 
+bool _test_169(){
+    Card* tempcards = new Card[3];
+    CardStats stats0(13, 16, 11, 18, 8, 1);
+    Card card0(CardType::Battle, stats0);
+    tempcards[0] = card0;
+    CardStats stats1(6, 18, 5, 14, 19, 0);
+    Card card1(CardType::Battle, stats1);
+    tempcards[1] = card1;
+    CardStats stats2(289, 17, 0, 19, 0, 4);
+    Card card2(CardType::Buff, stats2);
+    tempcards[2] = card2;
+    Mtmchkin game("Daniel", tempcards, 3);
+    while(!game.isOver()){
+        game.playNextCard();
+    }
+    if (game.getGameStatus()!=GameStatus::Win){
+        return false;
+    }
+    return true;
+
+
+
+}
+
+
+
 bool _test_killhealplayer(){
     Player player("Efrat",150,2);  //Efrat has 150 max HP and 2 points of m_force.
     CardStats stats(1000, 1000, 10, 30, 1, 20);
     Card card1(CardType::Battle, stats);
     card1.applyEncounter(player);
     if (!player.isKnockedOut()) return false;
+    return true;
 
 }
 
@@ -89,11 +116,12 @@ void run_test(std::function<bool()> test, std::string test_name){
 }
 
 int main(int argc, char *argv[]) {
-    const int NUMBER_OF_TESTS = 3;
+    const int NUMBER_OF_TESTS = 1;
     std::function<bool()> tests[NUMBER_OF_TESTS] = {
-        testPlayer,
-        testCard,
-        testMtmchkin
+//        testPlayer,
+//        testCard,
+//        testMtmchkin,
+        _test_169
     };
 
     if (argc < 2) {

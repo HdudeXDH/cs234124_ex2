@@ -16,8 +16,8 @@ Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCard
 // copy constructor
 Mtmchkin::Mtmchkin(const Mtmchkin& m) :
     m_player(Player(m.m_player)) ,
-    m_cards(new Card[m.m_cards_count]),
     m_game_status(m.m_game_status),
+    m_cards(new Card[m.m_cards_count]),
     m_cards_count(m.m_cards_count),
     m_cards_index(m.m_cards_count) {
     for (int i = 0; i < m.m_cards_count; i++) {
@@ -28,7 +28,7 @@ Mtmchkin::Mtmchkin(const Mtmchkin& m) :
 Mtmchkin & Mtmchkin::operator=(const Mtmchkin & m) {
     if (this == &m){
         return *this;
-    };
+    }
     delete[] m_cards;
     m_cards = new Card[m.m_cards_count];
     for (int i = 0; i<m.m_cards_count;i++){
@@ -38,10 +38,10 @@ Mtmchkin & Mtmchkin::operator=(const Mtmchkin & m) {
     return *this;
 }
 
-;
+
 Mtmchkin::~Mtmchkin(){
     delete[] m_cards;
-};
+}
 
 GameStatus Mtmchkin::getGameStatus() const {
     return this->m_game_status;
@@ -52,7 +52,7 @@ bool Mtmchkin::isOver() {
         this->m_game_status=GameStatus::Loss;
         return true;
     }
-    if (this->m_player.getLevel()==10){
+    if (this->m_player.getLevel()>=10){
         this->m_game_status=GameStatus::Win;
         return true;
     }
