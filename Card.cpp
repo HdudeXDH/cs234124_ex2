@@ -10,7 +10,7 @@ Card::Card(CardType type, const CardStats& stats){
 void Card::applyEncounter(Player& player) const{
     switch (this->m_effect) {
         case (CardType::Battle): {
-            if (player.getAttackStrength()>this->m_stats.force){
+            if (player.getAttackStrength()>=this->m_stats.force){
                 player.levelUp();
                 player.addCoins(this->m_stats.loot);
                 printBattleResult(true);
