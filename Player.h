@@ -6,7 +6,9 @@
 #define EX2_PLAYER_H
 
 
-
+static const int HP_DEFAULT = 100;
+static const int FORCE_DEFAULT = 5;
+static const int MAX_LVL = 10;
 
 class Player {
     const char *m_name;
@@ -16,48 +18,58 @@ class Player {
     int m_coins;
     int m_maxHP;
 public:
-    Player(const char *name, int hp=100, int force=5);
-    Player(const Player &)=default; //TODO: validate, else see tirgul 6 page 12
+    Player(const char *name, int hp=HP_DEFAULT, int force=FORCE_DEFAULT);
+    Player(const Player &)=default;
     ~Player() = default;
     Player & operator=(const Player &)=default;
+
     /*
-     *
+     * printing player info
      */
     void printInfo();
+
     /*
-     *
+     * level up the player
      */
     void levelUp();
+
     /*
-     *
+     * return current level player
      */
     int getLevel();
+
     /*
-     *
+     * return current player strength (force + level)
      */
     int getAttackStrength();
+
     /*
-     *
+     * adding points to the player's force
      */
     void buff(int points);
+
     /*
-     *
+     * healing points to the player, if surpasses the maxhp will stay on maxhp
      */
     void heal(int points);
+
     /*
-     *
+     * Damage the player
      */
     void damage(int points);
+
     /*
-     *
+     * check whether the player is knocked out (true/false)
      */
     bool isKnockedOut();
+
     /*
-     *
+     * Add coins to player
      */
     void addCoins(int amount);
+
     /*
-     *
+     * Pay the amount, if successful returns true
      */
     bool pay(int amount);
 };

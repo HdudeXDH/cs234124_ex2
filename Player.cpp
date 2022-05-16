@@ -5,29 +5,29 @@
 #include "Player.h"
 #include "utilities.h"
 
-Player::Player(const char *name, int hp , int force){
-    this->m_name=name;
+Player::Player(const char *name, int hp , int force):
+    m_name(name),
+    m_level(1),
+    m_coins(0){
+    // validating hp and force inputs
     if (force>0) {
         this->m_force=force;
     }
     else {
-        this->m_force=5;
+        this->m_force=FORCE_DEFAULT;
     }
     if (hp<=0) {
-        hp=100;
+        hp=HP_DEFAULT;
     }
-    this->m_level=1;
     this->m_maxHP=hp;
     this->m_hp=hp;
-    this->m_coins=0;
-
 }
 
 void Player::printInfo(){
     printPlayerInfo(this->m_name,this->m_level, this->m_force, this->m_hp,  this->m_coins);
 }
 void Player::levelUp(){
-    if (m_level<10) {
+    if (m_level<MAX_LVL) {
         this->m_level+=1;
     }
 }
